@@ -137,8 +137,7 @@ class CalendarProvider extends ChangeNotifier {
     //lastClickDateModel，默认是选中的item，如果为空的话，默认是当前的时间
     this.lastClickDateModel = selectDateModel != null
         ? selectDateModel
-        : DateModel.fromDateTime(DateTime.now())
-      ..day = 15;
+        : DateModel.fromDateTime(DateTime.now());
     //初始化展示状态
     if (calendarConfiguration.showMode ==
             CalendarConstants.MODE_SHOW_ONLY_WEEK ||
