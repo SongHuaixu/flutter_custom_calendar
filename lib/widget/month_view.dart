@@ -241,6 +241,7 @@ class ItemContainerState extends State<ItemContainer> {
 
           //多选也可以弄这些单选的代码
           calendarProvider.selectDateModel = dateModel;
+          refreshItem(!this.dateModel.isSelected);
         } else {
           calendarProvider.selectDateModel = dateModel;
           if (configuration.calendarSelect != null) {
@@ -248,12 +249,12 @@ class ItemContainerState extends State<ItemContainer> {
           }
 
           //单选需要刷新上一个item
-          if (calendarProvider.lastClickItemState != this) {
+          if (calendarProvider.lastClickItemState?.dateModel != dateModel) {
             calendarProvider.lastClickItemState?.refreshItem(false);
             calendarProvider.lastClickItemState = this;
+            refreshItem(!this.dateModel.isSelected);
           }
         }
-        refreshItem(!this.dateModel.isSelected);
       },
       child: configuration.dayWidgetBuilder(dateModel),
     );
