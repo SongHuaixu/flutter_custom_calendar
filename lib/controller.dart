@@ -217,6 +217,7 @@ class CalendarController {
   //切换展开状态
   void toggleExpandStatus() {
     calendarProvider.expandStatus.value = !calendarProvider.expandStatus.value;
+    calendarProvider.generation.value++;
     LogUtil.log(
         TAG: this.runtimeType,
         message: "toggleExpandStatus：${calendarProvider.expandStatus.value}");

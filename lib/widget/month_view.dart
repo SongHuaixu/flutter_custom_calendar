@@ -252,7 +252,7 @@ class ItemContainerState extends State<ItemContainer> {
           if (calendarProvider.lastClickItemState?.dateModel != dateModel) {
             calendarProvider.lastClickItemState?.refreshItem(false);
             calendarProvider.lastClickItemState = this;
-            refreshItem(!this.dateModel.isSelected);
+            refreshItem(true);
           }
         }
       },
