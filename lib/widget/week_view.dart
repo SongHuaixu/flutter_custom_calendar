@@ -54,7 +54,10 @@ class _WeekViewState extends State<WeekView> {
             maxSelectDate: widget.configuration.maxSelectDate,
             extraDataMap: extraDataMap,
             offset: widget.configuration.offset);
-        setState(() {});
+        var calendarProvider = Provider.of<CalendarProvider>(context, listen: false);
+        if (!calendarProvider.expandStatus.value) {
+          setState(() {});
+        }
       });
     });
   }
